@@ -1,5 +1,7 @@
+// import jsPDF from "jspdf";
+// import autoTable from "jspdf-autotable";
 import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
+import "jspdf-autotable";
 import React, { useState } from 'react'
 import { Header } from '../components/Header/Header'
 import "../styles/css/Checkout.css"
