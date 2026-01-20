@@ -7,6 +7,7 @@ import { Header } from '../components/Header/Header'
 import "../styles/css/Checkout.css"
 import { useLocation } from 'react-router-dom';
 import { closeBill } from "../api/bill";
+import autoTable from "jspdf-autotable";
 
 
 const years = [2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035];
