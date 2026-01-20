@@ -1,0 +1,71 @@
+
+body {
+    margin: 0px;
+}
+
+.image {
+    background-image: url(../Images/background.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#forgetP {
+    border: 2px solid white;
+    padding: 30px 30px 50px;
+    border-radius: 40px;
+    width: 350px;
+    margin: 0 auto;
+    background-color: rgba(170, 169, 169, 0.7)
+}
+
+#forgetP input {
+    width: 100%;
+    padding: 7px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.forget {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+
+#ForgetB{
+    font-weight: bold;
+    color: green;
+    width: 30%;
+    padding: 7px;
+    border-radius: 8px;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    background-color: rgb(212, 253, 214);
+    margin-top: 20px;
+}
+
+#ForgetB:hover {
+    color: black;
+    background-color: orange;
+}
+
+.input-error {
+    border: 1px solid red;
+}
+
+.error-text {
+    color: rgba(174, 1, 1, 0.862);
+    font-size: 12px;
+    margin-bottom: 20px;
+    margin-top: -15px;
+}
+
+.center-error {
+    text-align: center;
+    margin-top: 10px;
+}

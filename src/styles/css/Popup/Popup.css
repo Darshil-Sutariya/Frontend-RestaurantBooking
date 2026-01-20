@@ -1,0 +1,170 @@
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 325px;
+}
+
+.popup-box h3 {
+    margin-bottom: 15px;
+}
+
+.popup-box input {
+    width: 95%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.popup-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.popup-actions .cancel {
+    background: rgb(223, 63, 14);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+}
+
+.popup-actions .submit {
+    background: rgb(35, 155, 2);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+}
+
+.productpopup-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 325px;
+
+}
+
+.productpopup-box h3 {
+    margin-bottom: 15px;
+}
+
+.productdata input {
+    width: 100%;
+    padding: 7px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.productdata input:last-child {
+    margin-bottom: 0;
+    width: 15px;
+    height: 15px;
+}
+
+.acceptchek {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.acceptchek label {
+    display: block;
+}
+
+.popup-box input {
+    width: 100%;
+    padding: 7px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.search-dropdown {
+    position: relative;
+}
+
+.dropdown-list {
+    position: absolute;
+    width: 100%;
+    max-height: 180px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #ccc;
+    z-index: 1000;
+}
+
+.dropdown-item {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background: #f0f0f0;
+}
+
+.no-data {
+    padding: 8px;
+    color: gray;
+}
+
+.selecttable {
+    border-radius: 7px;
+    width: 320px;
+    height: 30px;
+}
+
+.searchp {
+    border-radius: 7px;
+    margin-top: 10px;
+    height: 25px;
+    width: 312px;
+}
+.productqunsec{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.productqun{
+    border-radius: 7px;
+    height: 25px;
+    margin-top: 10px;    
+    width: 65%;   
+}
+.addproductbtn{
+    align-items: center;
+    display: flex;
+    justify-self: center;
+    border-radius: 7px;
+    height: 30px;
+    margin-top: 10px;
+    width: 35%;
+    color: white;
+    background-color: black;
+}
+.addproductbtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.edit-item-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+}

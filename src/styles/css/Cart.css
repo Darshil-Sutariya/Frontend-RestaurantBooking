@@ -1,0 +1,237 @@
+
+/* Container */
+.carttable {
+  width: 92%;
+  margin: 100px auto;
+  border-collapse: separate;
+  border-spacing: 0 14px; /* gap between rows */
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* Header */
+.cartrow1 {
+  background: transparent;
+}
+
+.carthead {
+  padding: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+  border-bottom: none;
+}
+
+/* Premium Card Row */
+.premium-row {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+  transform: translateY(20px) scale(0.96);
+  opacity: 0;
+  animation: cinematicEnter 0.7s cubic-bezier(.22,.61,.36,1) forwards;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Cinematic Entry */
+@keyframes cinematicEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Magnetic Hover */
+.premium-row:hover {
+  transform: scale(1.015);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+/* Cells */
+.cartdata {
+  padding: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: #0f172a;
+}
+
+/* Image */
+.image-cell img {
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  object-fit: cover;
+  transition: transform 0.45s cubic-bezier(.22,.61,.36,1),
+              box-shadow 0.45s ease;
+}
+
+.image-cell img:hover {
+  transform: scale(1.2) rotate(-1deg);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+}
+
+/* Name */
+.name-cell {
+  font-weight: 500;
+}
+
+/* Price */
+.price-cell,
+.total-cell {
+  font-weight: 600;
+  color: #020617;
+}
+
+/* Delete Button */
+.cartdelete {
+  font-size: 20px;
+  color: #ef4444;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* Danger Pulse */
+.cartdelete::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: rgba(239,68,68,0.15);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: 0.3s ease;
+}
+
+.cartdelete:hover {
+  transform: scale(1.15);
+}
+
+.cartdelete:hover::after {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .carttable {
+    width: 100%;
+  }
+
+  .cartdata {
+    padding: 14px;
+    font-size: 13px;
+  }
+
+  .image-cell img {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+
+.billdetails{
+    width: 360px;
+    height: 400px;
+    padding: 16px 14px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    float: right;
+    background: #fff;
+    border: 1px solid #000;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+/* ===== Invoice Title ===== */
+.billdetails h3{
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #000;
+    text-transform: uppercase;
+}
+
+/* ===== Product Name ===== */
+.productbill{
+    font-size: 15px;
+    font-weight: bold;
+    margin: 12px 0 6px;
+}
+
+/* ===== Bill Rows ===== */
+.billsub,
+.billqty,
+.billtotal{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dotted #000;
+}
+
+.billsub h5,
+.billqty h5,
+.billtotal h5{
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* ===== Item Total ===== */
+.billtotal h5:last-child{
+    font-weight: bold;
+}
+
+/* ===== Grand Total ===== */
+.billtotalamount{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 2px solid #000;
+}
+
+.billtotalamount h5{
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* ===== Checkout Button ===== */
+.checkoutbtn{
+    margin-top: 16px;
+}
+
+.checkoutbtn button{
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #000;
+    background: #fff;
+    cursor: pointer;
+}
+
+.checkoutbtn button:hover{
+    background: #000;
+    color: #fff;
+}
+
+/* ===== Print Look ===== */
+.billdetails *{
+    letter-spacing: 0.4px;
+}
+

@@ -1,0 +1,183 @@
+/* ============================= */
+/* SLIDER CONTAINER */
+/* ============================= */
+.slider-container {
+  width: 100%;
+  margin: 20px auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ============================= */
+/* FORCE SINGLE ROW (IMPORTANT) */
+/* ============================= */
+.slider-container .slick-track {
+  display: flex !important;
+  align-items: stretch;
+}
+
+.slider-container .slick-slide {
+  height: auto;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+/* GAP BETWEEN SLIDES */
+.slider-container .slick-slide {
+  padding: 0 8px;   /* gap between slides */
+}
+
+.slider-container .slick-list {
+  margin: 0 -8px;  /* fix outer spacing */
+}
+
+
+/* ============================= */
+/* SLIDE INNER BOX */
+/* ============================= */
+.slider-container .slick-slide > div {
+  width: 100%;
+  background: #f1f5f9;
+  border-radius: 12px;
+  text-align: center;
+  /* padding: 40px 0; */
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.slider-container .slick-slide > div:hover {
+  transform: scale(1.05);
+}
+
+/* ============================= */
+/* SLIDE TEXT */
+/* ============================= */
+.slider-container h3 {
+  font-size: 24px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* ============================= */
+/* ARROWS */
+/* ============================= */
+.slider-container .slick-prev,
+.slider-container .slick-next {
+  width: 35px;
+  height: 35px;
+  z-index: 10;
+}
+
+.slider-container .slick-prev:before,
+.slider-container .slick-next:before {
+  font-size: 30px;
+  color: #0f172a;
+}
+
+/* ============================= */
+/* ARROWS AT TOP */
+/* ============================= */
+.slider-container {
+  position: relative;
+  margin-top: 100px;
+}
+
+/* Common arrow style */
+.slider-container .slick-prev,
+.slider-container .slick-next {
+  position: absolute;
+  top: -45px;            /* move above slider */
+  width: 36px;
+  height: 36px;
+  background: #e5e7eb;
+  border-radius: 50%;
+  z-index: 20;
+  background-color: rgb(252, 213, 165);
+    border: 2px solid darkorange;
+    color: darkgreen;
+}
+
+/* Left arrow */
+.slider-container .slick-prev {
+  right: 50px;           /* position side-by-side */
+  left: auto;
+}
+
+/* Right arrow */
+.slider-container .slick-next {
+  right: 5px;
+}
+
+/* Arrow icons */
+.slider-container .slick-prev:before,
+.slider-container .slick-next:before {
+  color: #0f172a;
+  font-size: 20px;
+}
+
+
+/* ============================= */
+/* DOTS */
+/* ============================= */
+.slider-container .slick-dots {
+  bottom: -30px;
+}
+
+.slider-container .slick-dots li button:before {
+  font-size: 10px;
+  color: gray;
+}
+
+.slider-container .slick-dots li.slick-active button:before {
+  color: #0f172a;
+}
+
+.sliderimg{
+  height: 250px;
+  width: 250px;
+ 
+}
+.sliderimg img{
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+  border-radius: 20px;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .slider-container h3 {
+    font-size: 20px;
+  }
+
+  .slider-container .slick-slide > div {
+    padding: 30px 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .slider-container {
+    padding: 0;
+  }
+
+  .slider-container .slick-slide > div {
+    padding: 25px 0;
+  }
+
+  .slider-container h3 {
+    font-size: 18px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .slider-container h3 {
+    font-size: 16px;
+  }
+}

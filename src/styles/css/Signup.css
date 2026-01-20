@@ -1,0 +1,61 @@
+
+body{
+   margin: 0px;
+}.image{
+    background-image: url(../Images/background.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}   
+#register{
+    border: 2px solid rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 40px;
+    width: 450px;
+    margin: 0 auto ;
+    background-color: rgba(119, 119, 119, 0.7);
+}
+#register input{
+    width: 192px;   
+    padding: 7px;
+    border-radius: 8px;
+}
+#register h2{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(0, 0, 0);
+}
+#submit{
+    font-weight: bold;
+    color: green;
+    width: 30%;
+    padding: 7px;
+    border-radius: 8px;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    background-color: rgb(212, 253, 214);
+}
+#submit:hover{
+    color: black;
+    background-color: orange;
+}
+.form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between; 
+}
+.form > div:last-child {
+    width: 100%;    
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+#already{
+    margin-top: 45px;
+    text-align: center;
+}

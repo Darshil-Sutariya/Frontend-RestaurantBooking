@@ -1,0 +1,307 @@
+/* .paymentcheck {
+    margin-top: 100px;
+}
+
+.paymentcheck h3 {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.paymentdetails {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 20px;
+    padding: 20px 60px;
+}
+
+.payleft {
+    width: 27%;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+}
+
+.payright {
+    width: 27%;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+}
+
+.paymentmode {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.paymentmode h5 {
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    margin: 0;
+}
+
+.cashrad input,
+.onrad input {
+    margin: 8px 5px 0;
+}
+
+
+.onlinepay select {
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.cardexp {
+    display: flex;
+    gap: 10px;
+}
+
+.cardexp select {
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.cardnum input,
+.cardcvv input,
+.upipay input {
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 88%;
+    margin-bottom: 15px;
+}
+
+.paybtn button {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.paybtn button:hover {
+    background: white;
+    color: black;
+}
+
+.pnameprice {
+    display: flex;
+    justify-content: space-between;
+}
+
+.payright h5{
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    margin: 0;
+}
+.cproducttotal{
+     display: flex;
+    justify-content: space-between;
+}
+.pnameprice .productName, .pnameprice .productprice{
+    margin: 0px;
+    margin-top: 15px;
+}  */
+
+
+/* --- General Enhancements --- */
+:root {
+    --primary-color: #2563eb; /* Modern Blue */
+    --hover-color: #1d4ed8;
+    --bg-light: #f8fafc;
+    --text-dark: #1e293b;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.paymentcheck {
+    margin-top: 80px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    padding-bottom: 50px;
+}
+
+.paymentcheck h3 {
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    color: var(--text-dark);
+    padding-top: 40px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    animation: fadeInDown 0.8s ease;
+}
+
+/* --- Container Layout --- */
+.paymentdetails {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Responsive */
+    padding: 0 20px;
+}
+
+/* --- Card Styles (Left & Right) --- */
+.payleft, .payright {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.8s ease;
+}
+
+.payleft:hover, .payright:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Payment Mode Selection --- */
+.paymentmode {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    background: #f1f5f9;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.paymentmode h5 {
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+.cashrad, .onrad {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* --- Form Elements --- */
+.onlinepay select, 
+.cardexp select, 
+.cardnum input, 
+.cardcvv input, 
+.upipay input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Padding fix */
+    margin-bottom: 15px;
+}
+
+.onlinepay select:focus, 
+.cardnum input:focus, 
+.upipay input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.cardexp {
+    display: flex;
+    gap: 15px;
+}
+
+/* --- Button Styling --- */
+.paybtn button {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.paybtn button:hover {
+    background: #f1f5f9;
+    color: black;
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+}
+
+/* --- Right Summary Styling --- */
+.payright h5 {
+    font-size: 20px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.pnameprice, .cproducttotal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.productName { font-weight: 500; color: #64748b; }
+.productprice { font-weight: bold; color: var(--text-dark); }
+
+.cproducttotal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    background: #f1f5f9;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+}
+
+.pay-message {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pay-message.success {
+  color: #1aa36f;
+}
+
+.pay-message.error {
+  color: #e63946;
+}
+
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive Fix --- */
+@media (max-width: 768px) {
+    .paymentdetails { gap: 20px; }
+    .payleft, .payright { width: 90%; }
+}
