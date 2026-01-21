@@ -1,10 +1,11 @@
 import axios from "axios";
+import { baseURL } from ".";
 
 export const productResponseApi = () => {
   const token = localStorage.getItem("token");
 
   return axios.get(
-    "http://localhost:5000/api/product/view",
+     `${baseURL}/product/view`,
     {
       headers: {
         Authorization: `Bearer ${token}`
@@ -16,7 +17,7 @@ export const productResponseApi = () => {
 export const createProduct = (data) => {
   const token = localStorage.getItem("token");
   return axios.post(
-    "http://localhost:5000/api/product/create",
+     `${baseURL}/product/create`,
     data,
     {
       headers: {
@@ -29,7 +30,7 @@ export const createProduct = (data) => {
 export const updateProduct = (id, data) => {
   const token = localStorage.getItem("token");
   return axios.put(
-    `http://localhost:5000/api/product/update/${id}`,
+     `${baseURL}/product/update/${id}`,
     data,
     {
       headers: {
@@ -42,7 +43,7 @@ export const updateProduct = (id, data) => {
 export const deleteProduct = (id) => {
   const token = localStorage.getItem("token");
   return axios.delete(
-    `http://localhost:5000/api/product/delete/${id}`,
+     `${baseURL}/product/delete/${id}`,
     {
       headers: {
         Authorization: `Bearer ${token}`  

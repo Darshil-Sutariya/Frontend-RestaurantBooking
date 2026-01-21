@@ -1,10 +1,11 @@
 import axios from "axios";
+import { baseURL } from ".";
 
 
 export const viewBill = () => {
   const token = localStorage.getItem("token");
   return axios.get(
-    "http://localhost:5000/api/bill/view",
+    `${baseURL}/bill/view`,
     {
       headers: {
         Authorization: `Bearer ${token}`    
@@ -17,7 +18,7 @@ export const viewBill = () => {
 export const createBill = (data) => {
   const token = localStorage.getItem("token");
   return axios.post(
-    "http://localhost:5000/api/bill/create",
+    `${baseURL}/bill/create`,
     data,
     {
       headers: {
@@ -31,7 +32,7 @@ export const createBill = (data) => {
 export const closeBill = (id, data) => {
   const token = localStorage.getItem("token");
   return axios.put(
-    `http://localhost:5000/api/bill/close/${id}`,
+    `${baseURL}/bill/close/${id}`,
     data,
     {
       headers: {
@@ -44,7 +45,7 @@ export const closeBill = (id, data) => {
 export const updateBill = (id, data) => {
   const token = localStorage.getItem("token");
   return axios.put(
-    `http://localhost:5000/api/bill/update/${id}`,
+    `${baseURL}/bill/update/${id}`,
     data,
     {
       headers: {
@@ -57,7 +58,7 @@ export const updateBill = (id, data) => {
 export const deleteBill = (id) => {
   const token = localStorage.getItem("token");
   return axios.delete(
-    `http://localhost:5000/api/bill/delete/${id}`,
+    `${baseURL}/bill/delete/${id}`,
     {
       headers: {
         Authorization: `Bearer ${token}`  

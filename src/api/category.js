@@ -1,10 +1,11 @@
 import axios from "axios";
+import { baseURL } from ".";
 
 export const categoriesResponseApi = () => {
   const token = localStorage.getItem("token");
 
   return axios.get(
-    "http://localhost:5000/api/category/view",
+    `${baseURL}/category/view`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -17,7 +18,8 @@ export const createCategory = (data) => {
     const token = localStorage.getItem("token");
 
   return axios.post(
-    "http://localhost:5000/api/category/create", data,
+     `${baseURL}/category/create`, 
+    data,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -30,7 +32,7 @@ export const updateCategory = (id, data) => {
   const token = localStorage.getItem("token");
 
   return axios.put(
-    `http://localhost:5000/api/category/update/${id}`,
+     `${baseURL}/category/update/${id}`,
     data,
     {
       headers: { Authorization: `Bearer ${token}` },
@@ -42,7 +44,7 @@ export const deleteCategory = (id) => {
   const token = localStorage.getItem("token");
 
   return axios.delete(
-    `http://localhost:5000/api/category/delete/${id}`,
+     `${baseURL}/category/delete/${id}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,

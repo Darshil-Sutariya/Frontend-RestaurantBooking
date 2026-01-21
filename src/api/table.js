@@ -1,10 +1,11 @@
 import axios from "axios";
+import { baseURL } from ".";
 
 export const tableResponseApi = () => {
   const token = localStorage.getItem("token");
 
   return axios.get(
-    "http://localhost:5000/api/table/view",
+     `${baseURL}/table/view`,
     {
       headers: {
         Authorization: `Bearer ${token}`
@@ -18,7 +19,7 @@ export const occupyTableApi = (tableId) => {
   const token = localStorage.getItem("token");
 
   return axios.put(
-    `http://localhost:5000/api/table/occupy/${tableId}`,
+     `${baseURL}/table/occupy/${tableId}`,
     {},
     {
       headers: {
@@ -31,7 +32,7 @@ export const occupyTableApi = (tableId) => {
 export const createTable = (data) => {
   const token = localStorage.getItem("token");
   return axios.post(
-    "http://localhost:5000/api/table/create",
+     `${baseURL}/table/create`,
     data,
     {
       headers: {
@@ -44,7 +45,7 @@ export const createTable = (data) => {
 export const deleteTable = (id) => {
   const token = localStorage.getItem("token");
   return axios.delete(
-    `http://localhost:5000/api/table/delete/${id}`,
+     `${baseURL}/table/delete/${id}`,
     {
       headers: {
         Authorization: `Bearer ${token}`  
@@ -56,7 +57,7 @@ export const deleteTable = (id) => {
 export const updateTable = (id, data) => {
   const token = localStorage.getItem("token");
   return axios.put(
-    `http://localhost:5000/api/table/update/${id}`,
+     `${baseURL}/table/update/${id}`,
     data,
     {
       headers: {
