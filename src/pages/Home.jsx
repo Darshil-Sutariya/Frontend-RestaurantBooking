@@ -65,12 +65,8 @@ export const Home = () => {
     try {
       const categoriesResponse = await categoriesResponseApi();
 
-      console.log("CATEGORY API RESPONSE:", categoriesResponse.data);
-
       if (categoriesResponse.data.success) {
-        setCategories(categoriesResponse.data.categories); // 🔥 FIX
-      } else {
-        setCategories([]);
+        setCategories(categoriesResponse.data.data);
       }
 
       const productsResponse = await productResponseApi();
@@ -79,6 +75,7 @@ export const Home = () => {
       console.error("Error fetching data:", error);
     }
   };
+
 
   useEffect(() => {
     fetchData();
