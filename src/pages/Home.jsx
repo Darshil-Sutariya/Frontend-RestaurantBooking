@@ -24,6 +24,8 @@ import { useNavigate } from "react-router-dom";
 import { BillPopup } from "../components/Popup/BillPopup";
 
 export const Home = () => {
+  console.log("🔥 HOME COMPONENT MOUNTED");
+
   const [collapsed, setCollapsed] = useState(false);
 
   const [categories, setCategories] = useState([]);
@@ -64,7 +66,9 @@ export const Home = () => {
   const fetchData = async () => {
     try {
       const categoriesResponse = await categoriesResponseApi();
-      setCategories(categoriesResponse.data.data || []);
+      console.log("🔥 Categories API:", categoriesResponse.data);
+
+      setCategories(categoriesResponse.data || []);
 
       const productsResponse = await productResponseApi();
       setProducts(productsResponse.data.data || []);
