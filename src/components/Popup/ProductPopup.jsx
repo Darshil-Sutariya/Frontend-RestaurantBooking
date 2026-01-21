@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
 import "../../styles/css/Popup/Popup.css";
 
+// ✅ Move outside component
+const emptyProduct = {
+  productname: "",
+  productdiscription: "",
+  productprice: "",
+  productimage: "",
+  category: ""
+};
+
 export const ProductPopup = ({
   open,
   onClose,
@@ -9,14 +18,6 @@ export const ProductPopup = ({
   mode,
   selectedCategory
 }) => {
-
-  const emptyProduct = {
-    productname: "",
-    productdiscription: "",
-    productprice: "",
-    productimage: "",
-    category: ""
-  };
 
   const [productData, setProductData] = useState(emptyProduct);
   const [error, setError] = useState("");
@@ -34,7 +35,7 @@ export const ProductPopup = ({
     }
 
     setError("");
-  }, [open, mode, initialValue]);
+  }, [open, mode, initialValue]); // ✅ no warning now
 
   if (!open) return null;
 
@@ -46,7 +47,7 @@ export const ProductPopup = ({
   const handleCheckbox = (e) => {
     setProductData({
       ...productData,
-      category: e.target.checked ? selectedCategory._id : ""
+      category: e.target.checked ? selectedCategory?._id : ""
     });
   };
 
@@ -78,56 +79,47 @@ export const ProductPopup = ({
       <div className="productpopup-box">
         <h3>{mode === "edit" ? "Edit Product" : "Add Product"}</h3>
 
-         <div className="productdata">
-
-        <input
-                            name="productname"
-                            placeholder="Product Name"
-                            value={productData.productname}
-                            onChange={handleChange}
-                        />
-                        {error && <p className="error-text">{error}</p>}
-
-
-
-                        <input
-                            name="productdiscription"
-                            placeholder="Description"
-                            value={productData.productdiscription}
-                            onChange={handleChange}
-                        />
-                        {error && <p className="error-text">{error}</p>}
-
-
-                        <input
-                            name="productprice"
-                            type="number"
-                            placeholder="Price"
-                            value={productData.productprice}
-                            onChange={handleChange}
-                        />
-                        {error && <p className="error-text">{error}</p>}
-
-
-                        <input
-                            name="productimage"
-                            placeholder="Image URL"
-                            value={productData.productimage}
-                            onChange={handleChange}
-                        />
-                        {error && <p className="error-text">{error}</p>}
-
-
-        <div className="acceptchek">
-          <label>Accepted {selectedCategory?.name}</label>
+        <div className="productdata">
           <input
-            type="checkbox"
-            checked={productData.category === selectedCategory?._id}
-            onChange={handleCheckbox}
+            name="productname"
+            placeholder="Product Name"
+            value={productData.productname}
+            onChange={handleChange}
           />
-        </div>
+          {error && <p className="error-text">{error}</p>}
 
-        {error && <p className="error-text">{error}</p>}
+          <input
+            name="productdiscription"
+            placeholder="Description"
+            value={productData.productdiscription}
+            onChange={handleChange}
+          />
+
+          <input
+            name="productprice"
+            type="number"
+            placeholder="Price"
+            value={productData.productprice}
+            onChange={handleChange}
+          />
+
+          <input
+            name="productimage"
+            placeholder="Image URL"
+            value={productData.productimage}
+            onChange={handleChange}
+          />
+
+          <div className="acceptchek">
+            <label>Accepted {selectedCategory?.name}</label>
+            <input
+              type="checkbox"
+              checked={productData.category === selectedCategory?._id}
+              onChange={handleCheckbox}
+            />
+          </div>
+
+          {error && <p className="error-text">{error}</p>}
         </div>
 
         <div className="popup-actions">

@@ -90,9 +90,9 @@ export const ProductDetails = () => {
 
   /* ---------------- CART (BILL) LOGIC ---------------- */
   const [quantity, setQuantity] = useState(0);
- 
 
- 
+
+
 
   const getOpenBill = async () => {
     const res = await viewBill();
@@ -125,60 +125,64 @@ export const ProductDetails = () => {
   const handleIncrease = () => setQuantity(q => q + 1);
   const handleDecrease = () => setQuantity(q => (q > 0 ? q - 1 : 0));
 
-const handleAddToCart = async () => {
-  const tableId = localStorage.getItem("bookedTableId");
-  if (!tableId) return alert("Please book table first");
+  const handleAddToCart = async () => {
+    const tableId = localStorage.getItem("bookedTableId");
+    if (!tableId) return alert("Please book table first");
 
-  let bill = await getOpenBill();
+    let bill = await getOpenBill();
 
-  if (!bill) {
-    await createBill({
-      tableId,
-      items: [{
-        productId: product._id,
-        quantity
-      }]
-    });
-  } else {
-    const items = [...(bill.items || [])];
-    const index = items.findIndex(i => i.product === product._id);
-
-    if (index !== -1) {
-      items[index].quantity = quantity;
+    if (!bill) {
+      await createBill({
+        tableId,
+        items: [{
+          productId: product._id,
+          quantity
+        }]
+      });
     } else {
-      items.push({ product: product._id, quantity });
+      const items = [...(bill.items || [])];
+      const index = items.findIndex(i => i.product === product._id);
+
+      if (index !== -1) {
+        items[index].quantity = quantity;
+      } else {
+        items.push({ product: product._id, quantity });
+      }
+
+      const payloadItems = items.map(i => ({
+        productId: i.product,
+        quantity: i.quantity
+      }));
+
+      await updateBill(bill._id, {
+        tableId,
+        items: payloadItems
+      });
     }
-
-    const payloadItems = items.map(i => ({
-      productId: i.product,
-      quantity: i.quantity
-    }));
-
-    await updateBill(bill._id, {
-      tableId,
-      items: payloadItems
-    });
-  }
-};
+  };
 
 
   useEffect(() => {
-    if (!product) fetchProductByName();
-  }, []);
+    if (!product) {
+      fetchProductByName();
+    }
+  }, [product, fetchProductByName]);
 
-  const fetchProductByName = async () => {
+
+  const fetchProductByName = useCallback(async () => {
     const res = await productResponseApi();
     const found = res.data.data.find(
       p => p.productname.toLowerCase().replace(/\s+/g, "-") === productName
     );
     setProduct(found);
-  };
+  }, [productName]);
+
 
   if (!product) return <h2 style={{ textAlign: "center" }}>Product not found</h2>;
 
   return (
     <div>
-      <Header  />
+      <Header />
 
       <div className='mainbox'>
         <div className='productleft'>

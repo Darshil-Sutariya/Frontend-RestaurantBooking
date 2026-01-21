@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Header } from '../components/Header/Header'
 import "../styles/css/Cart.css"
-import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { viewBill } from '../api/bill';
 import { Link } from 'react-router-dom';
@@ -62,11 +61,12 @@ export const Cart = () => {
     const slugify = (text) => {
         return text
             .toLowerCase()          // Capital → small
-            .trim()                 // Extra spaces remove
-            .replace(/\s+/g, "-")   // Space → -
-            .replace(/[^\w\-]+/g, "") // Special characters remove
-            .replace(/\-\-+/g, "-");  // Multiple - → single -
+            .trim()                // Extra spaces remove
+            .replace(/\s+/g, "-")  // Space → -
+            .replace(/[^\w-]+/g, "") // Special characters remove
+            .replace(/--+/g, "-"); // Multiple - → single -
     };
+
 
 
     return (

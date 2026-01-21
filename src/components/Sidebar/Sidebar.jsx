@@ -16,7 +16,7 @@ export const Sidebar = ({
   const [showCategories, setShowCategories] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);
   const [activeProduct, setActiveProduct] = useState(null);
-  const [showTables, setShowTables] = useState(false);
+  const [showTables] = useState(false);
 
 
   // 🔥 Toggle main category menu

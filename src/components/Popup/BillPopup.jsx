@@ -15,7 +15,6 @@ export const BillPopup = ({
     const [productId, setProductId] = useState("");
     const [quantity, setQuantity] = useState("1");
     const [items, setItems] = useState([]);
-    const [error, setError] = useState("");
     const [showProductDropdown, setShowProductDropdown] = useState(false);
 
     useEffect(() => {
