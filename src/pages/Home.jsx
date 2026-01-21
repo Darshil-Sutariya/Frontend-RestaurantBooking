@@ -64,7 +64,14 @@ export const Home = () => {
   const fetchData = async () => {
     try {
       const categoriesResponse = await categoriesResponseApi();
-      setCategories(categoriesResponse.data || []);
+
+      console.log("CATEGORY API RESPONSE:", categoriesResponse.data);
+
+      if (categoriesResponse.data.success) {
+        setCategories(categoriesResponse.data.categories); // 🔥 FIX
+      } else {
+        setCategories([]);
+      }
 
       const productsResponse = await productResponseApi();
       setProducts(productsResponse.data.data || []);
