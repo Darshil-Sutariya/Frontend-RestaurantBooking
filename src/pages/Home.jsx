@@ -64,10 +64,7 @@ export const Home = () => {
   const fetchData = async () => {
     try {
       const categoriesResponse = await categoriesResponseApi();
-
-      if (categoriesResponse.data.success) {
-        setCategories(categoriesResponse.data.data);
-      }
+      setCategories(categoriesResponse.data.data || []);
 
       const productsResponse = await productResponseApi();
       setProducts(productsResponse.data.data || []);
