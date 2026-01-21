@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useLocation, useParams } from "react-router-dom";
 import { Header } from '../components/Header/Header';
 import "../styles/css/ProductDetails/ProductDetails.css";
@@ -161,6 +161,13 @@ export const ProductDetails = () => {
     }
   };
 
+  const fetchProductByName = useCallback(async () => {
+    const res = await productResponseApi();
+    const found = res.data.data.find(
+      p => p.productname.toLowerCase().replace(/\s+/g, "-") === productName
+    );
+    setProduct(found);
+  }, [productName]);
 
   useEffect(() => {
     if (!product) {
@@ -169,13 +176,7 @@ export const ProductDetails = () => {
   }, [product, fetchProductByName]);
 
 
-  const fetchProductByName = useCallback(async () => {
-    const res = await productResponseApi();
-    const found = res.data.data.find(
-      p => p.productname.toLowerCase().replace(/\s+/g, "-") === productName
-    );
-    setProduct(found);
-  }, [productName]);
+
 
 
   if (!product) return <h2 style={{ textAlign: "center" }}>Product not found</h2>;

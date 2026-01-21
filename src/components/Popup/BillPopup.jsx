@@ -16,6 +16,8 @@ export const BillPopup = ({
     const [quantity, setQuantity] = useState("1");
     const [items, setItems] = useState([]);
     const [showProductDropdown, setShowProductDropdown] = useState(false);
+    const [error, setError] = useState("");
+
 
     useEffect(() => {
         if (!open) return;
@@ -97,6 +99,8 @@ export const BillPopup = ({
                             </option>
                         ))}
                 </select>
+                {error && <p className="popup-error">{error}</p>}
+
 
                 {/* ================= PRODUCT SEARCH DROPDOWN ================= */}
                 <div className="search-dropdown">
